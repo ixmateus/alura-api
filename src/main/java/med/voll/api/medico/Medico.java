@@ -1,3 +1,4 @@
+
 package med.voll.api.medico;
 
 import jakarta.persistence.*;
