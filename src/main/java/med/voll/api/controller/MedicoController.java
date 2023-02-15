@@ -10,9 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.net.URI;
-
-
 @RestController
 @RequestMapping("medicos")
 public class MedicoController {
@@ -27,13 +24,13 @@ public class MedicoController {
         repository.save(new Medico (dados));
 
         var uri = uriBuilder.path("/medicos/{id}").buildAndExpand(medico.getId()).toUri();
-
-        return ResponseEntity.created(uri).body(new DadosDetalhamentoMedico(    medico));
+        return ResponseEntity.created(uri).body(new DadosDetalhamentoMedico(medico));
     }
 
     @GetMapping
     public ResponseEntity <Page<DadosListagemMedico>> listar(Pageable paginacao) {
         var page = repository.findAllByAtivoTrue(paginacao).map(DadosListagemMedico::new); //Convertendo lista de Medico para List<DadosListagemMedico>
+
         return ResponseEntity.ok(page);
     }
 
@@ -54,6 +51,12 @@ public class MedicoController {
         medico.excluir();
 
         return ResponseEntity.noContent().build();
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar(@PathVariable Long id) {
+        var medico = repository.getReferenceById(id);
+
+        return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
     }
 
 }
