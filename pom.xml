@@ -67,7 +67,6 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -88,6 +87,16 @@
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-maven-plugin</artifactId>
 				<version>9.5.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>7.0.0</version>
+				<configuration>
+					<url>jdbc:mysql://localhost/vollmed_api</url>
+					<user>mateus</user>
+					<password>M@tt8322021663636810</password>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
