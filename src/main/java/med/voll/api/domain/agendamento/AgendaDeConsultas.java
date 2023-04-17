@@ -34,13 +34,14 @@ public class AgendaDeConsultas {
     }
 
     private Medico escolherMedico(DadosAgendamentoConsulta dados) {
-        if (dados.idMedico() == null) {
+        if (dados.idMedico() != null) {
             return medicoRepository.getReferenceById(dados.idMedico());
         }
 
         if (dados.especialidade() == null) {
             throw new ValidacaoException("Especialidade obrigatoria!");
         }
-        return medicoRepository.escolherMedicoAleatorioLivreNaData(), dados.data();
+
+        return medicoRepository.escolherMedicoAleatorioLivreNaData(dados.especialidade(), dados.data());
     }
 }
