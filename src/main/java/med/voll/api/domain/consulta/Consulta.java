@@ -1,4 +1,4 @@
-package med.voll.api.domain.agendamento;
+package med.voll.api.domain.consulta;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

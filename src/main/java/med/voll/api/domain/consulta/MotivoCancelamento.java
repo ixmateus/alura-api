@@ -1,4 +1,4 @@
-package med.voll.api.domain.agendamento;
+package med.voll.api.domain.consulta;
 
 public enum MotivoCancelamento {
     PACIENTE_DESISTIU,
