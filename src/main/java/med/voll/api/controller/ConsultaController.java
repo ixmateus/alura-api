@@ -1,9 +1,9 @@
 package med.voll.api.controller;
 
 import jakarta.validation.Valid;
-import med.voll.api.domain.consulta.AgendaDeConsultas;
-import med.voll.api.domain.consulta.DadosAgendamentoConsulta;
-import med.voll.api.domain.consulta.DadosDetalhamentoConsulta;
+import med.voll.api.domain.consulta.agendamento.AgendaDeConsultas;
+import med.voll.api.domain.consulta.agendamento.DadosAgendamentoConsulta;
+import med.voll.api.domain.consulta.cancelamento.DadosCancelamentoConsulta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,8 +21,9 @@ public class ConsultaController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity agendar(@RequestBody @Valid DadosAgendamentoConsulta dados){
+    public ResponseEntity agenda(@RequestBody @Valid DadosAgendamentoConsulta dados){
         var dto = agenda.agendar(dados);
         return ResponseEntity.ok(dto);
     }
+
 }

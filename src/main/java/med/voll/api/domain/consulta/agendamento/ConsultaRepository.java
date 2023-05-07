@@ -1,7 +1,6 @@
-package med.voll.api.domain.consulta;
+package med.voll.api.domain.consulta.agendamento;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.time.LocalDateTime;
 
 public interface ConsultaRepository extends JpaRepository<Consulta, Long> {

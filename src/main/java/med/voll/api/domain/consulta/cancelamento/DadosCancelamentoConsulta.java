@@ -1,4 +1,4 @@
-package med.voll.api.domain.consulta;
+package med.voll.api.domain.consulta.cancelamento;
 
 import jakarta.validation.constraints.NotNull;
 

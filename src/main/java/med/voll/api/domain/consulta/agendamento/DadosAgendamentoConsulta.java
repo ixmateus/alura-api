@@ -1,4 +1,4 @@
-package med.voll.api.domain.consulta;
+package med.voll.api.domain.consulta.agendamento;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Future;
