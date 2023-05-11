@@ -41,11 +41,11 @@ public class AgendaDeConsultas {
 
         validadores.forEach(v -> v.validar(dados));
 
+        var paciente = pacienteRepository.getReferenceById(dados.idPaciente());
         var medico = escolherMedico(dados);
-        if (medico != null) {
+        if (medico == null) {
             throw new ValidacaoException("Não possui nenhum médico disponível nesta data!");
         }
-        var paciente = pacienteRepository.getReferenceById(dados.idPaciente());
         var consulta = new Consulta(null, medico, paciente, dados.data(), null);
         consultaRepository.save(consulta);
 
